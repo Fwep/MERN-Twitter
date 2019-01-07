@@ -1,7 +1,5 @@
 const Validator = require("validator");
-const validText = requiore("./valid-text");
-const validateRegisterInput = require("../../validation/register");
-const validateLoginInput = require("../../validation/login");
+const validText = require("./valid-text");
 
 module.exports = function validateLoginInput(data) {
   let errors = {};
@@ -9,8 +7,6 @@ module.exports = function validateLoginInput(data) {
   data.email = validText(data.email) ? data.email: "";
   data.password = validText(data.password) ? data.password: "";
 
-
-  
   if (!Validator.isEmail(data.email)) {
     errors.email = "Email is invalid";
   }
